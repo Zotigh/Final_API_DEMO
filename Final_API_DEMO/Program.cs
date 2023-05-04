@@ -80,9 +80,6 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
 
     // This will not work if this is not a async task method.
     var validationResult = await _validation.ValidateAsync(coupon_C_DTO);
-    //This works if you do not want to make the request a async task
-    //var validationResult = _validation.ValidateAsync(coupon_C_DTO).GetAwaiter().GetResult();
-
 
     //Tells Server that if the ID is not 0 (which it should be everytime since the DataBase(DB) or server is
     //responsible for adding) or there is no name to return an error message/code. 
