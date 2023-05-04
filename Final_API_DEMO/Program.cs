@@ -108,15 +108,6 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
     //This is because the other fields are already generated automatically and should not be edited.
     //This function using the Imapper will automatically map the function to the desired class.
     Coupon coupon = _mapper.Map<Coupon>(coupon_C_DTO);
-    //This is how to do this when not using IMapper but the concept is the same as the above documentation.
-    /*Coupon coupon = new()
-    {
-        IsActive = coupon_C_DTO.IsActive,
-        Name = coupon_C_DTO.Name,
-        Percent = coupon_C_DTO.Percent
-    };*/
-
-
 
     //finds the list of coupons and adds it to that list as the next object (+1).
     coupon.Id = CouponStore.couponList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
