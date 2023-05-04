@@ -121,26 +121,7 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
     //This is the same as the above instead it utilizes the couponDTO which does not show the date modified field.
     // THIS IS ALSO SO WE DO NOT EXPOSE OR ENTITY WHICH IS COUPON BY USING THE DTO'S
     CouponDTO couponDTO = _mapper.Map<CouponDTO>(coupon);
-    /*CouponDTO couponDTO = new()
-    {
-        Id = coupon.Id, 
-        IsActive = coupon.IsActive,
-        Name = coupon.Name,
-        Percent = coupon.Percent,
-        Created = coupon.Created
-    };*/
-
-    //We have to write the route it was saved.
-    //TODO the '$' is string interpolation look that up
-    //This is the proper way the response should be handled as it is a created instance but Ok does work.
-    //This example is with out the WithName function
-    //return Results.Created($"/api/coupon {coupon.Id}", coupon);
-
-
-    //Used the WithName function to return the fill end point in the generated URL so you dont have to maually enter.
-    //This is useful to generate the url to plug n play.
-    //return Results.CreatedAtRoute("GetCoupon", new { id = coupon.Id }, couponDTO);
-
+    
     response.Result = couponDTO;
     response.IsSuccess = true;
     response.StatusCode = HttpStatusCode.Created;
