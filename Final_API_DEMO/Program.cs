@@ -55,7 +55,7 @@ app.MapGet("/api/coupon", (ILogger<Program> _logger) =>
 
     //return Results.Ok(CouponStore.couponList);
     return Results.Ok(response);
-    //}).WithName("GetCoupons").Produces<IEnumerable<Coupon>>(200);
+  
 }).WithName("GetCoupons").Produces<APIResponse>(200);
 //Since this one is reteiveing a list the IEnumerable keyword needs to be used.
 
