@@ -56,7 +56,6 @@ app.MapGet("/api/coupon", (ILogger<Program> _logger) =>
     return Results.Ok(response);
   
 }).WithName("GetCoupons").Produces<APIResponse>(200);
-//Since this one is reteiveing a list the IEnumerable keyword needs to be used.
 
 //This MapGet function returns the coupon with the request specific ID when ran and requested.
 //Added the Get name so we can call this endpoint.
