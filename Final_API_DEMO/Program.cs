@@ -53,7 +53,6 @@ app.MapGet("/api/coupon", (ILogger<Program> _logger) =>
     response.IsSuccess = true;
     response.StatusCode = HttpStatusCode.OK;
 
-    //return Results.Ok(CouponStore.couponList);
     return Results.Ok(response);
   
 }).WithName("GetCoupons").Produces<APIResponse>(200);
