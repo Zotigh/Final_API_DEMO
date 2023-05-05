@@ -104,7 +104,6 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
 
     Coupon coupon = _mapper.Map<Coupon>(coupon_C_DTO);
 
-    //finds the list of coupons and adds it to that list as the next object (+1).
     coupon.Id = CouponStore.couponList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
 
     CouponStore.couponList.Add(coupon);
