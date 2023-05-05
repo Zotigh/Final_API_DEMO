@@ -87,14 +87,9 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
     {
         response.ErrorMessages.Add(validationResult.Errors.FirstOrDefault().ToString());
 
-        //return Results.BadRequest("Invalid Id or Coupon Name");
-
-        //This can be customized if you want to return all of the headers.
-        //return Results.BadRequest(validationResult.Errors.FirstOrDefault().ToString());
         return Results.BadRequest(response);
     }
 
-    //Safe guard to check if the name of the coupon already exists to prevent duplicates.
     if (CouponStore.couponList.FirstOrDefault(u => u.Name.ToLower() == coupon_C_DTO.Name.ToLower()) != null)
     {
         response.ErrorMessages.Add("Coupon Name Already Exists");
