@@ -98,7 +98,6 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
     if (CouponStore.couponList.FirstOrDefault(u => u.Name.ToLower() == coupon_C_DTO.Name.ToLower()) != null)
     {
         response.ErrorMessages.Add("Coupon Name Already Exists");
-        //return Results.BadRequest("Coupon Name Already Exists");
         return Results.BadRequest(response);
     }
 
