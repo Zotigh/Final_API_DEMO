@@ -83,7 +83,6 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
 
     //Tells Server that if the ID is not 0 (which it should be everytime since the DataBase(DB) or server is
     //responsible for adding) or there is no name to return an error message/code. 
-    //if (string.IsNullOrEmpty(coupon_C_DTO.Name))
     if (!validationResult.IsValid)
     {
         response.ErrorMessages.Add(validationResult.Errors.FirstOrDefault().ToString());
