@@ -107,14 +107,7 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
     //finds the list of coupons and adds it to that list as the next object (+1).
     coupon.Id = CouponStore.couponList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
 
-    //Adds the coupon to the coupon list
     CouponStore.couponList.Add(coupon);
-
-    //This works but is usually not the proper way to return. 
-    //return Results.Ok(coupon);
-
-    //This is the same as the above instead it utilizes the couponDTO which does not show the date modified field.
-    // THIS IS ALSO SO WE DO NOT EXPOSE OR ENTITY WHICH IS COUPON BY USING THE DTO'S
     CouponDTO couponDTO = _mapper.Map<CouponDTO>(coupon);
     
     response.Result = couponDTO;
