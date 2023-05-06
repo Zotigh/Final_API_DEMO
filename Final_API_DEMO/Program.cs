@@ -13,9 +13,6 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-//Here is where you would use a logger function if it is not available.
-//You can add the service here then use it within the methods below.
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
