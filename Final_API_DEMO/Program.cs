@@ -32,7 +32,6 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/api/coupon", (ILogger<Program> _logger) =>
 {
     APIResponse response = new();
-    //A logger method that will tell the console what is happening via a logged message.
     _logger.Log(LogLevel.Information, "Get all Coupons");
     response.Result = CouponStore.couponList;
     response.IsSuccess = true;
