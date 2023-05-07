@@ -53,7 +53,7 @@ app.MapGet("/api/coupon/{id:int}", (int id) =>
 
     //return Results.Ok(CouponStore.couponList.FirstOrDefault(u => u.Id == id));
     return Results.Ok(response);
-    //}).WithName("GetCoupon").Produces<Coupon>(200);
+
 }).WithName("GetCoupon").Produces<APIResponse>(200);
 
     IValidator<CouponCreateDTO> _validation, [FromBody] CouponCreateDTO coupon_C_DTO) =>
