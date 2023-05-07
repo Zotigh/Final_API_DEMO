@@ -51,7 +51,6 @@ app.MapGet("/api/coupon/{id:int}", (int id) =>
     response.IsSuccess = true;
     response.StatusCode = HttpStatusCode.OK;
 
-    //return Results.Ok(CouponStore.couponList.FirstOrDefault(u => u.Id == id));
     return Results.Ok(response);
 
 }).WithName("GetCoupon").Produces<APIResponse>(200);
