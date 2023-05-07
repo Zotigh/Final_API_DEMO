@@ -42,8 +42,6 @@ app.MapGet("/api/coupon", (ILogger<Program> _logger) =>
   
 }).WithName("GetCoupons").Produces<APIResponse>(200);
 
-//This MapGet function returns the coupon with the request specific ID when ran and requested.
-//Added the Get name so we can call this endpoint.
 app.MapGet("/api/coupon/{id:int}", (int id) =>
 {
     APIResponse response = new();
