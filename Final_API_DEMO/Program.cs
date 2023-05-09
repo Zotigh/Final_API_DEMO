@@ -86,11 +86,44 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
 }).WithName("CreateCoupon").Accepts<CouponCreateDTO>("application/json").Produces<APIResponse>(201).Produces(400);
 
 app.MapPut("/api/coupon", async (IMapper _mapper,
-    IValidator<CouponCreateDTO> _validation, [FromBody] CouponCreateDTO coupon_C_DTO) =>
+    IValidator<CouponUpdateDTO> _validation, [FromBody] CouponUpdateDTO coupon_U_DTO) =>
 {
+    APIResponse response = new() { IsSuccess = false, StatusCode = HttpStatusCode.BadRequest };
 
-});
+    var validationResult = await _validation.ValidateAsync(coupon_U_DTO);
 
+    if (!validationResult.IsValid)
+    {
+        response.ErrorMessages.Add(validationResult.Errors.FirstOrDefault().ToString());
+
+        return Results.BadRequest(response);
+    }
+    /*
+     * TODO this needs to be updated so that we dont update the same Id we are already updating
+     * Check 1:36:00 for more info.
+    if (CouponStore.couponList.FirstOrDefault(u => u.Name.ToLower() == coupon_U_DTO.Name.ToLower()) != null)
+    {
+        response.ErrorMessages.Add("Coupon Name Already Exists");
+        return Results.BadRequest(response);
+    }
+    */
+
+    // More valdation is probably needed here but is not requiered to make this work for now but it needs to be used when making a complete product.
+
+    //This finds the ID and updates it to the current values that are being updated.
+    Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == coupon_U_DTO.Id);
+    couponFromStore.IsActive = coupon_U_DTO.IsActive;
+    couponFromStore.Name = coupon_U_DTO.Name;
+    couponFromStore.Percent = coupon_U_DTO.Percent;
+    couponFromStore.LastUpdated = DateTime.Now;
+
+    //converts the coupon from store to the DTO using AutoMapAttribute mapper
+    response.Result = _mapper.Map<CouponDTO>(couponFromStore);
+    response.IsSuccess = true;
+    response.StatusCode = HttpStatusCode.OK;
+    return Results.Ok(response);
+}).WithName("UpdateCoupon").Accepts<CouponUpdateDTO>("application/json").Produces<APIResponse>(200).Produces(400);
+//Accepts function
 app.MapDelete("/api/coupon/{id:int}", (int id) =>
 {
 
