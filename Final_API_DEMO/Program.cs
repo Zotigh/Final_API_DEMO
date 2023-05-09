@@ -51,6 +51,7 @@ app.MapGet("/api/coupon/{id:int}", (int id) =>
 
 }).WithName("GetCoupon").Produces<APIResponse>(200);
 
+app.MapPost("/api/coupon", async (IMapper _mapper,
     IValidator<CouponCreateDTO> _validation, [FromBody] CouponCreateDTO coupon_C_DTO) =>
 {
     APIResponse response = new() { IsSuccess = false, StatusCode = HttpStatusCode.BadRequest };
