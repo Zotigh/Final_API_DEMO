@@ -98,19 +98,6 @@ app.MapPut("/api/coupon", async (IMapper _mapper,
 
         return Results.BadRequest(response);
     }
-    /*
-     * TODO this needs to be updated so that we dont update the same Id we are already updating
-     * Check 1:36:00 for more info.
-    if (CouponStore.couponList.FirstOrDefault(u => u.Name.ToLower() == coupon_U_DTO.Name.ToLower()) != null)
-    {
-        response.ErrorMessages.Add("Coupon Name Already Exists");
-        return Results.BadRequest(response);
-    }
-    */
-
-    // More valdation is probably needed here but is not requiered to make this work for now but it needs to be used when making a complete product.
-
-    //This finds the ID and updates it to the current values that are being updated.
     Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == coupon_U_DTO.Id);
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
     couponFromStore.Name = coupon_U_DTO.Name;
@@ -123,7 +110,7 @@ app.MapPut("/api/coupon", async (IMapper _mapper,
     response.StatusCode = HttpStatusCode.OK;
     return Results.Ok(response);
 }).WithName("UpdateCoupon").Accepts<CouponUpdateDTO>("application/json").Produces<APIResponse>(200).Produces(400);
-//Accepts function
+
 app.MapDelete("/api/coupon/{id:int}", (int id) =>
 {
 
