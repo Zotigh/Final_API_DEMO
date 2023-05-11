@@ -128,6 +128,11 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
     {
         CouponStore.couponList.Remove(couponFromStore);
     }
+    else 
+    {
+        response.ErrorMessages.Add("Invalid ID");
+        return Results.BadRequest(response);
+    }
 
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
     couponFromStore.Name = coupon_U_DTO.Name;
