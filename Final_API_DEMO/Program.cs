@@ -129,7 +129,6 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
         response.ErrorMessages.Add("Invalid ID");
         return Results.BadRequest(response);
     }
-
 });
 
 app.UseHttpsRedirection();
