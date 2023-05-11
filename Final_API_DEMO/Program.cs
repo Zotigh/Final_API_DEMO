@@ -113,7 +113,21 @@ app.MapPut("/api/coupon", async (IMapper _mapper,
 
 app.MapDelete("/api/coupon/{id:int}", (int id) =>
 {
+    APIResponse response = new() { IsSuccess = false, StatusCode = HttpStatusCode.BadRequest };
 
+    var validationResult = await _validation.ValidateAsync(coupon_U_DTO);
+
+    Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == coupon_U_DTO.Id);
+    couponFromStore.IsActive = coupon_U_DTO.IsActive;
+    couponFromStore.Name = coupon_U_DTO.Name;
+    couponFromStore.Percent = coupon_U_DTO.Percent;
+    couponFromStore.LastUpdated = DateTime.Now;
+
+    //converts the coupon from store to the DTO using AutoMapAttribute mapper
+    response.Result = _mapper.Map<CouponDTO>(couponFromStore);
+    response.IsSuccess = true;
+    response.StatusCode = HttpStatusCode.OK;
+    return Results.Ok(response);
 });
 
 app.UseHttpsRedirection();
