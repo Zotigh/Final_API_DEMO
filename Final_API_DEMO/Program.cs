@@ -122,6 +122,11 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
 
     // This uses the id that was passed as the argument as the object we are going to modify.
     Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == id);
+    if (couponFromStore != null)
+    {
+
+    }
+
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
     couponFromStore.Name = coupon_U_DTO.Name;
     couponFromStore.Percent = coupon_U_DTO.Percent;
