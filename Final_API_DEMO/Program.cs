@@ -120,7 +120,8 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
      * TODO add validation
      */
 
-    Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == coupon_U_DTO.Id);
+
+    Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == id);
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
     couponFromStore.Name = coupon_U_DTO.Name;
     couponFromStore.Percent = coupon_U_DTO.Percent;
