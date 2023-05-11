@@ -115,8 +115,6 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
 {
     APIResponse response = new() { IsSuccess = false, StatusCode = HttpStatusCode.BadRequest };
 
-    var validationResult = await _validation.ValidateAsync(coupon_U_DTO);
-
     //Can add validations but for the sake of this Demo it will be removed for now.
     /*
      * TODO add validation
