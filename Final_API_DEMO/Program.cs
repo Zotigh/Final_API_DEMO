@@ -37,7 +37,7 @@ app.MapGet("/api/coupon", (ILogger<Program> _logger) =>
     response.StatusCode = HttpStatusCode.OK;
 
     return Results.Ok(response);
-  
+
 }).WithName("GetCoupons").Produces<APIResponse>(200);
 
 app.MapGet("/api/coupon/{id:int}", (int id) =>
@@ -77,7 +77,7 @@ app.MapPost("/api/coupon", async (IMapper _mapper,
 
     CouponStore.couponList.Add(coupon);
     CouponDTO couponDTO = _mapper.Map<CouponDTO>(coupon);
-    
+
     response.Result = couponDTO;
     response.IsSuccess = true;
     response.StatusCode = HttpStatusCode.Created;
@@ -115,7 +115,7 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
 {
     APIResponse response = new() { IsSuccess = false, StatusCode = HttpStatusCode.BadRequest };
 
-  Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == id);
+    Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == id);
 
     if (couponFromStore != null)
     {
@@ -124,11 +124,12 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
         response.StatusCode = HttpStatusCode.NoContent;
         return Results.Ok(response);
     }
-    else 
+    else
     {
         response.ErrorMessages.Add("Invalid ID");
         return Results.BadRequest(response);
     }
+
 });
 
 app.UseHttpsRedirection();
