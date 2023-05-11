@@ -128,8 +128,8 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
     {
         CouponStore.couponList.Remove(couponFromStore);
         response.IsSuccess = true;
-        response.StatusCode = HttpStatusCode.OK;
-        // You can also use response.StatusCode = HttpStatusCode.NoContent;
+        //You can also use    response.StatusCode = HttpStatusCode.OK;
+        response.StatusCode = HttpStatusCode.NoContent;
         //It depends how you are going to implement the delete method but this is usually used.
         return Results.Ok(response);
     }
