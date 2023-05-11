@@ -118,6 +118,9 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
     var validationResult = await _validation.ValidateAsync(coupon_U_DTO);
 
     //Can add validations but for the sake of this Demo it will be removed for now.
+    /*
+     * TODO add validation
+     */
     Coupon couponFromStore = CouponStore.couponList.FirstOrDefault(u => u.Id == coupon_U_DTO.Id);
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
     couponFromStore.Name = coupon_U_DTO.Name;
