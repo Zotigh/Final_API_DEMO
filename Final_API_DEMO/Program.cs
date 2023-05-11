@@ -126,7 +126,7 @@ app.MapDelete("/api/coupon/{id:int}", (int id) =>
     // TODO use guard clauses here instead.
     if (couponFromStore != null)
     {
-
+        CouponStore.couponList.Remove(couponFromStore);
     }
 
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
