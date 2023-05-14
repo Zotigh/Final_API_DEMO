@@ -1,4 +1,10 @@
-﻿namespace DemoAPI.Models.DTO
+﻿/******************************************************
+* Programmer: Lance Zotigh (lzotigh1@cnm.edu/lzotigh1@gmail.com)
+* Program: API Demo
+* Purpose: Demo that shows how to create a Minimal API
+********************************************************/
+
+namespace DemoAPI.Models.DTO
 {
     //This DTO just makes it so we cannot see when the coupon was last updated.
     public class CouponDTO
