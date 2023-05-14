@@ -1,4 +1,10 @@
-﻿using FluentValidation;
+﻿/******************************************************
+* Programmer: Lance Zotigh (lzotigh1@cnm.edu/lzotigh1@gmail.com)
+* Program: API Demo
+* Purpose: Demo that shows how to create a Minimal API
+********************************************************/
+
+using FluentValidation;
 //using DemoAPI.Models;
 using DemoAPI.Models.DTO;
 
