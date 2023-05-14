@@ -3,13 +3,13 @@
 * Program: API Demo
 * Purpose: Demo that shows how to create a Minimal API
 ********************************************************/
-    using System.Net;
+using System.Net;
 
 namespace DemoAPI.Models
 {
     public class APIResponse
     {
-        public APIResponse() 
+        public APIResponse()
         {
             ErrorMessages = new List<string>();
         }
