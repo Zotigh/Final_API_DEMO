@@ -14,10 +14,7 @@ namespace DemoAPI.Validation
     {
         public CouponUpdateValidation()
         {
-            //Defines what the rules are for.
-
-            //Defines that the Id cannot be zero and must be greater than 0.
-            RuleFor(model => model.Id).NotEmpty().GreaterThan(0);
+             RuleFor(model => model.Id).NotEmpty().GreaterThan(0);
 
             //Defines rule will not be empty.
             RuleFor(model => model.Name).NotEmpty();
