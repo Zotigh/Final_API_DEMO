@@ -12,8 +12,7 @@ namespace DemoAPI.Validation
 {
     public class CouponCreateValidation : AbstractValidator<CouponCreateDTO>
     {
-        //Validation constructor
-        public CouponCreateValidation()
+       public CouponCreateValidation()
         {
             //Defines what the rules are for.
 
