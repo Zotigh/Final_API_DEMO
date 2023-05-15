@@ -4,7 +4,6 @@
 * Purpose: Demo that shows how to create a Minimal API
 ********************************************************/
 
-//using DemoAPI.Models;
 using DemoAPI.Models.DTO;
 using FluentValidation;
 
