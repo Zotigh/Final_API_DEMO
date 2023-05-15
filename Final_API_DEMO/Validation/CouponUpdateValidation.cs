@@ -10,8 +10,7 @@ using DemoAPI.Models.DTO;
 
 namespace DemoAPI.Validation
 {
-    // defines what this class is validating by using AbstractValidator and the class.
-    public class CouponUpdateValidation : AbstractValidator<CouponUpdateDTO>
+     public class CouponUpdateValidation : AbstractValidator<CouponUpdateDTO>
     {
         //Validation constructor
         public CouponUpdateValidation()
