@@ -4,17 +4,17 @@
 * Purpose: Demo that shows how to create a Minimal API
 ********************************************************/
 
-using FluentValidation;
 //using DemoAPI.Models;
 using DemoAPI.Models.DTO;
+using FluentValidation;
 
 namespace DemoAPI.Validation
 {
     public class CouponCreateValidation : AbstractValidator<CouponCreateDTO>
     {
-       public CouponCreateValidation()
+        public CouponCreateValidation()
         {
-           RuleFor(model => model.Name).NotEmpty();
+            RuleFor(model => model.Name).NotEmpty();
 
             RuleFor(model => model.Percent).InclusiveBetween(1, 100);
         }
