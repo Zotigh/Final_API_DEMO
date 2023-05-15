@@ -16,7 +16,6 @@ namespace DemoAPI.Validation
         {
            RuleFor(model => model.Name).NotEmpty();
 
-           //Defines that the percent must be between a certain threshold 1-100.
             RuleFor(model => model.Percent).InclusiveBetween(1, 100);
         }
     }
