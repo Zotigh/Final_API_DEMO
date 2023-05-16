@@ -8,8 +8,7 @@ using DemoAPI.Models;
 
 namespace DemoAPI.Data
 {
-    //Made this a static class so we do not have to create this as an object every time.
-    public static class CouponStore
+     public static class CouponStore
     {
         public static List<Coupon> couponList = new List<Coupon>()
         {
