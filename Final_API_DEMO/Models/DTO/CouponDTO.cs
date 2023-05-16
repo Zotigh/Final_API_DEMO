@@ -6,7 +6,6 @@
 
 namespace DemoAPI.Models.DTO
 {
-    //This DTO just makes it so we cannot see when the coupon was last updated.
     public class CouponDTO
     {
         public int Id { get; set; }
