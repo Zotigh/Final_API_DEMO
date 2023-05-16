@@ -8,7 +8,6 @@
 
 namespace DemoAPI.Models
 {
-    //Class for attributes
     public class Coupon
     {
         public int Id { get; set; }
