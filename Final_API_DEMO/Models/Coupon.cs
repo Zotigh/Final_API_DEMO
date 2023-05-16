@@ -20,7 +20,6 @@ namespace DemoAPI.Models
 
          public DateTime? Created { get; set; }
 
-        //The "?" tells the compiler that this field is nullable which should satisfy the compiler since it knows.
         public DateTime? LastUpdated { get; set; }
     }
 }
