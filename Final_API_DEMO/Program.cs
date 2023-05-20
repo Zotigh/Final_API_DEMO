@@ -102,6 +102,7 @@ app.MapPut("/api/coupon", async (IMapper _mapper,
     couponFromStore.IsActive = coupon_U_DTO.IsActive;
     couponFromStore.Name = coupon_U_DTO.Name;
     couponFromStore.Percent = coupon_U_DTO.Percent;
+    //Changes the result so the Time
     couponFromStore.LastUpdated = DateTime.Now;
 
     response.Result = _mapper.Map<CouponDTO>(couponFromStore);
