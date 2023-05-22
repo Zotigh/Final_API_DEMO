@@ -13,6 +13,7 @@ namespace DemoAPI.Models
         {
             ErrorMessages = new List<string>();
         }
+
         public bool IsSuccess { get; set; }
         public Object Result { get; set; }
         public HttpStatusCode StatusCode { get; set; }
