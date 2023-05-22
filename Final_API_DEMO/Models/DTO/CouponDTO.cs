@@ -4,6 +4,7 @@
 * Purpose: Demo that shows how to create a Minimal API
 ********************************************************/
 
+//TODO start plaing with the fields to see what is possible.
 namespace DemoAPI.Models.DTO
 {
     public class CouponDTO
